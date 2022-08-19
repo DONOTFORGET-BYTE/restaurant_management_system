@@ -1,0 +1,66 @@
+﻿@model restaurant_management_system.reservation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.purpose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purpose)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type_of_table)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type_of_table)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.startdatetime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startdatetime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.customer_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reservation_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reservation_status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.reservation_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

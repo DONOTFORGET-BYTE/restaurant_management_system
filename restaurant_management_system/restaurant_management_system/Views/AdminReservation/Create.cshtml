@@ -1,0 +1,94 @@
+﻿@model restaurant_management_system.reservation
+
+@{
+    ViewBag.Title = "Create Reservation";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>reservation</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.customer_id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.customer_id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.customer_id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.startdatetime, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input asp-for="DateWhenJoined" type="datetime-local" name="joinedDate" class="form-control">
+            @Html.ValidationMessageFor(model => model.startdatetime, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Order (free entry text)</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.description, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.description, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.purpose, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select id="purpose" name="purpose">
+                <option value="meeting">meeting</option>
+                <option value="casual">casual</option>
+                <option value="celebration">celebration</option>
+                <option value="other">other</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.purpose, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.type_of_table, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select id="type_of_table" name="type_of_table">
+                <option value="table for 2">table for 2</option>
+                <option value="table for 3">table for 3</option>
+                <option value="table for 4">table for 4</option>
+                <option value="table for 5">table for 5</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.type_of_table, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.reservation_status, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <select id="reservation_status" name="reservation_status">
+                <option value="Booked">Booked</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+            @Html.ValidationMessageFor(model => model.reservation_status, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
